@@ -25,13 +25,23 @@
 
 #### The process:
 
-1. Created a new rails 4 app:
+1- Createing a new rails 4 app:
   `rails _4.2.7_ new . ProductManager -d postgresql -T`
-2. Create a scaffold of the product with the attributes from the table:
+2- Creating a scaffold of the product with the attributes from the table:
   `rails g scaffold Product product:string customer:string measure:string value:decimal valid_from_day:date valid_to_day:date`
   (I though about changing the `product` attribute to `title` but then chose to stick to the specifications provided)
   Then migrated: `rake db:migrate`
-3. Seed the database with the examples provided:
+
+  Now through my scaffold I have a form to add products with the attributes I need:
+  ![It Works!!!](http://i64.tinypic.com/3090ocg.jpg "it Works!!!")
+
+  And upon adding the first product it will be displayed in a table:
+  ![It Works!!!](http://i64.tinypic.com/s5ztkh.jpg "it Works!!!")
+
+  But I'll add my products by seeding the database.
+
+
+3- Seeding the database with the examples provided:
 
 ```
 # in /db/seed.rb
@@ -46,7 +56,10 @@ Product.create!(product: 'Widgets', customer: 'Tesco', measure: 'Gross Sales Pri
 ```
 Then: `rake db:seed`
 
-4. Create a method to find maching products:
+And now this is how my index looks:
+![It Works!!!](http://i65.tinypic.com/2jeo1so.jpg "it Works!!!")
+
+4- Create a method to find maching products:
   * I added a method to the Product model to find a match:
   ```
   def a_match?(another_product)
@@ -84,4 +97,6 @@ Then: `rake db:seed`
     end
   ```
 
-And it works:
+And this is how it looks now:
+
+![It Works!!!](http://i68.tinypic.com/2dl2osp.jpg "it Works!!!")
