@@ -1,4 +1,4 @@
-# Exceedra Problem Solving Exercise
+# Problem Solving Exercise
 
 #### Assumptions or decisions:
 
@@ -33,9 +33,11 @@
   Then migrated: `rake db:migrate`
 
   Now through my scaffold I have a form to add products with the attributes I need:
+
   ![It Works!!!](http://i64.tinypic.com/3090ocg.jpg "it Works!!!")
 
   And upon adding the first product it will be displayed in a table:
+
   ![It Works!!!](http://i64.tinypic.com/s5ztkh.jpg "it Works!!!")
 
   But I'll add my products by seeding the database.
@@ -57,6 +59,7 @@ Product.create!(product: 'Widgets', customer: 'Tesco', measure: 'Gross Sales Pri
 Then: `rake db:seed`
 
 And now this is how my index looks:
+
 ![It Works!!!](http://i65.tinypic.com/2jeo1so.jpg "it Works!!!")
 
 4- Create a method to find maching products:
@@ -100,3 +103,22 @@ And now this is how my index looks:
 And this is how it looks now:
 
 ![It Works!!!](http://i68.tinypic.com/2dl2osp.jpg "it Works!!!")
+
+
+#### To run the app:
+
+* Please clone the repo:
+  `$ git clone git@github.com:cyberplanner/problem_solving_exercise.git`
+
+* Run bundle:
+  `$ bundle install`
+
+* Run the server:
+  `$ rails s`
+
+* Visit the app's root page:
+  http://localhost:3000/
+
+
+-------
+##### Thanks for reviewing my code, feedback is welcomed and appreciated.
