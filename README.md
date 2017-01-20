@@ -62,6 +62,8 @@ And now this is how my index looks:
 
 ![It Works!!!](http://i65.tinypic.com/2jeo1so.jpg "it Works!!!")
 
+(I noticed that product number 9 which had wierd dates (i.e 0000000 99999) was created but the valid from and to dates were added to the database as NULL)
+
 4- Create a method to find maching products:
   * I added a method to the Product model to find a match:
   ```
@@ -103,6 +105,12 @@ And now this is how my index looks:
 And this is how it looks now:
 
 ![It Works!!!](http://i68.tinypic.com/2dl2osp.jpg "it Works!!!")
+
+
+ِAnd through editing the date of a product the overlapping dates could be removed.
+
+#### To do:
+* Add button to remove overlapping dates with one click. 
 
 
 #### To run the app:
