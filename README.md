@@ -68,7 +68,7 @@ And now this is how my index looks:
   * I added a method to the Product model to find a match:
   ```
   def a_match?(another_product)
-    if self.product == another_product.product && self.customer == another_product.customer && self.measure == another_product.measure && (self.valid_from_day..self.valid_to_day).overlaps?(another_product.valid_from_day..another_product.valid_to_day)
+    if self.id != another_product.id && self.product == another_product.product && self.customer == another_product.customer && self.measure == another_product.measure && (self.valid_from_day..self.valid_to_day).overlaps?(another_product.valid_from_day..another_product.valid_to_day)
       true
     else
       false
@@ -110,17 +110,21 @@ And this is how it looks now:
 ِAnd through editing the date of a product the overlapping dates could be removed.
 
 #### To do:
-* Add button to remove overlapping dates with one click. 
+* Add button to remove overlapping dates with one click.
 
 
 #### To run the app:
 
 * Please clone the repo:
   `$ git clone git@github.com:cyberplanner/problem_solving_exercise.git`
-
+* cd inside the app's directory:
+  `$ cd problem_solving_exercise`
 * Run bundle:
   `$ bundle install`
-
+* Create the datebase:
+  `$ rake db:create`
+* Seed the database:
+  `$ rake db:seed`
 * Run the server:
   `$ rails s`
 
