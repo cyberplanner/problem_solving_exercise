@@ -75,43 +75,63 @@ And now this is how my index looks:
     end
   end
   ```
-  * and used it in the index view:
+  * and used it in the index view to print tables of each matching pair:
   ```
+  <h1>Matching Products</h1>
+
   <% @products.each do |product| %>
-      <% if product.a_match?(@product) %>
-        <tr>
-          <td><%= product.id %></td>
-          <td><%= product.product %></td>
-          <td><%= product.customer %></td>
-          <td><%= product.measure %></td>
-          <td><%= product.value %></td>
-          <td><%= product.valid_from_day %></td>
-          <td><%= product.valid_to_day %></td>
-        </tr>
-        <% @counter += 1%>
-      <% end %>
+    <% matched_products = @products.select {|p| product.a_match?(p) }.each do |matched_product| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Row ID</th>
+            <th>Product</th>
+            <th>Customer</th>
+            <th>Measure</th>
+            <th>Value</th>
+            <th>Valid from day</th>
+            <th>Valid to day</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+              <tr>
+                <td><%= product.id %></td>
+                <td><%= product.product %></td>
+                <td><%= product.customer %></td>
+                <td><%= product.measure %></td>
+                <td><%= product.value %></td>
+                <td><%= product.valid_from_day %></td>
+                <td><%= product.valid_to_day %></td>
+              </tr>
+              <tr>
+                <td><%= matched_product.id %></td>
+                <td><%= matched_product.product %></td>
+                <td><%= matched_product.customer %></td>
+                <td><%= matched_product.measure %></td>
+                <td><%= matched_product.value %></td>
+                <td><%= matched_product.valid_from_day %></td>
+                <td><%= matched_product.valid_to_day %></td>
+              </tr>
+        </tbody>
+      </table>
+
     <% end %>
+  <% end %>
   ```
 
-  * `@product` and `@counter` are defined i the product controller:
-  ```
-    def index
-      @products = Product.all
-      @counter = 0
-      @product = Product.all[@counter]
-    end
-  ```
 
 And this is how it looks now:
 
-![It Works!!!](http://i68.tinypic.com/2dl2osp.jpg "it Works!!!")
+![Matching tables!!!](http://i64.tinypic.com/nf2z5t.jpg)
 
 
 ِAnd through editing the date of a product the overlapping dates could be removed.
 
 #### To do:
 * Add button to remove overlapping dates with one click.
-
+* Refactor views into partials
 
 #### To run the app:
 
